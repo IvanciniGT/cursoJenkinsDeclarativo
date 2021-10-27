@@ -33,12 +33,16 @@ node {
         echo 'Estoy en la etapa 3'   
         parallel (
             "Subetapa 3.1": {
-                echo 'Estoy en la etapa 3.1'   
-                sh 'sleep 10'
+                stage('Etapa 3.1'){
+                    echo 'Estoy en la etapa 3.1'   
+                    sh 'sleep 10'
+                }
             },
             "Subetapa 3.2": {
-                echo 'Estoy en la etapa 3.2'   
-                sh 'sleep 10'
+                stage('Etapa 3.2'){
+                    echo 'Estoy en la etapa 3.2'   
+                    sh 'sleep 10'
+                }
             }
         )
     }
