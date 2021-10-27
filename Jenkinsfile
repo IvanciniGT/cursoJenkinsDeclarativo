@@ -1,12 +1,22 @@
 pipeline {
     agent any
     
-    parameters {
+    parameters {   // Dando de alta un parametro que se solicitará al ejecutar un proyecto
       string defaultValue: '0', name: 'CODIGO_SALIDA'
     }
     
         
     stages{
+        stage('Etapa 0'){
+            when {
+               expression {
+                   this.params.CODIGO_SALIDA == null
+               } 
+            }
+            steps {
+                echo 'Dentro de la Etapa 0'
+            }
+        }
         stage('Etapa 1'){
             steps {
                 echo 'Dentro de la Etapa 1'
