@@ -9,8 +9,10 @@ node {
             // Esta tarea se ejecura siempre que las anteriores hayan ido bien
             echo 'Despues de la Etapa 1, si va bien'
         }catch (exc){
-            // Este seria el caso failure del Declarativo
+            // Este sería el caso del catchError
             echo 'Esto solo se va a ejecutar si se ha producido un error'   
+            // Este seria el caso failure del Declarativo
+            throw exc
         }finally {
             echo 'Esto se ejecuta si hay error o no'   
         }
