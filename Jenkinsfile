@@ -10,11 +10,12 @@ pipeline {
         stage('Etapa 0'){
             when {
                expression {
-                   this.params.CODIGO_SALIDA == null
+                   this.params.getOrDefault('CODIGO_SALIDA','-1') == '-1'
                } 
             }
             steps {
                 echo 'Dentro de la Etapa 0'
+                // Se corte la ejecución del JOB
             }
         }
         stage('Etapa 1'){
