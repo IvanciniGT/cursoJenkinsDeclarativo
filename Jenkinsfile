@@ -46,4 +46,16 @@ node {
             }
         )
     }
+
+    stage('Etapa 4'){
+        so = ['Linux','Macos','BSD']
+        programas = ['nginx','apache']
+        
+        for (int i=0;i<so.size();i++){
+            for (int j=0;j<programas.size();j++){
+                echo "Voy a probar mi app sobre ${so[i]} corriendo en ${programas[j]}"
+            }
+        }
+    }
+    
 }
