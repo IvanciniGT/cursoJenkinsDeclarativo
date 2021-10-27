@@ -5,6 +5,7 @@ node {
     stage('Etapa 1'){
         try{
             echo 'Dentro de la Etapa 1'
+            sh 'exit 1'
             // Esta tarea se ejecura siempre que las anteriores hayan ido bien
             echo 'Despues de la Etapa 1, si va bien'
         }catch (exc){
