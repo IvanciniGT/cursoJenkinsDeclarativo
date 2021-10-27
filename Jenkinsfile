@@ -50,7 +50,7 @@ pipeline {
             //post {}
         }
         stage('Etapa 3'){
-            stages {
+            parallel {
                 stage('Etapa 3.1'){
                     steps {
                         sh 'sleep 10'
