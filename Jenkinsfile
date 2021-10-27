@@ -53,7 +53,7 @@ node {
         
         for (int i=0;i<so.size();i++){
             for (int j=0;j<programas.size();j++){
-                if (so[i]!='Linux' && programas[i]!='apache'){
+                if (so[i]=='Linux' && programas[i]=='apache'){
                     continue
                 }
                 echo "Voy a probar mi app sobre ${so[i]} corriendo en ${programas[j]}"
