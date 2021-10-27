@@ -3,6 +3,7 @@ pipeline {
         docker {
             image 'ubuntu'
         }
+        //dockerfile
     }
     
     parameters {   // Dando de alta un parametro que se solicitará al ejecutar un proyecto
