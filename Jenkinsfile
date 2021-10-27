@@ -13,38 +13,40 @@ pipeline {
             }
         }
         stage('Etapa 2'){
-            stages {                                    // Me ayuda a tener el trabajo más organizado
-                stage('Etapa 2.1') {
-                    steps {
-                        echo 'Dentro de la Etapa 2.1'
+            catchError(buildResult: 'SUCCESS', message: 'Aqui la cagamos !!!!!', stageResult: 'FAILURE') {
+                stages {                                    // Me ayuda a tener el trabajo más organizado
+                    stage('Etapa 2.1') {
+                        steps {
+                            echo 'Dentro de la Etapa 2.1'
+                        }
+                        //post {}
                     }
-                    //post {}
-                }
-                stage('Etapa 2.2') {
-                    steps {
-                        catchError(buildResult: 'SUCCESS', message: 'Aqui la cagamos !!!!!', stageResult: 'FAILURE') {
-                            echo 'Dentro de la Etapa 2.2'
-                            echo 'Esta etapa genera una explosión gigantescamente aberrante !!!! ;)'
-                            sh 'exit 1'
+                    stage('Etapa 2.2') {
+                        steps {
+    //                        catchError(buildResult: 'SUCCESS', message: 'Aqui la cagamos !!!!!', stageResult: 'FAILURE') {
+                                echo 'Dentro de la Etapa 2.2'
+                                echo 'Esta etapa genera una explosión gigantescamente aberrante !!!! ;)'
+                                sh 'exit 1'
+    //                        }
+                        }
+                        post {
+                            success {
+                                echo 'La Etapa 2.2 acabó guay'
+                            }
+                            failure {
+                                echo 'La Etapa 2.2 acabó fatalmente mal'
+                            }
+                            always {
+                                echo 'La Etapa 2.2 acabó !!!!'
+                            }
                         }
                     }
-                    post {
-                        success {
-                            echo 'La Etapa 2.2 acabó guay'
+                    stage('Etapa 2.3') {
+                        steps {
+                            echo 'Dentro de la Etapa 2.3'
                         }
-                        failure {
-                            echo 'La Etapa 2.2 acabó fatalmente mal'
-                        }
-                        always {
-                            echo 'La Etapa 2.2 acabó !!!!'
-                        }
+                        //post {}
                     }
-                }
-                stage('Etapa 2.3') {
-                    steps {
-                        echo 'Dentro de la Etapa 2.3'
-                    }
-                    //post {}
                 }
             }
             //post {}
