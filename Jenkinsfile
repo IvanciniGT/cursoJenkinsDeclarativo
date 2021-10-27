@@ -1,3 +1,20 @@
+// Puedo definir un parametro, donde me de la gana del fichero !!!!
+// EUREKA !!!!
+properties (
+    [
+        parameters(
+                [
+                    string defaultValue: '1', name: 'CODIGO_SALIDA'
+                ]
+            ),
+        pipelineTriggers(
+                [
+                    cron("* * * * *")
+                ]
+            )
+    ]    
+)
+
 node {
     stage('Etapa 0'){
         echo 'Dentro de la Etapa 0'
