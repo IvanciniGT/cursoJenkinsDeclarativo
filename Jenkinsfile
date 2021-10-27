@@ -18,7 +18,7 @@ pipeline {
                     steps {
                         echo 'Dentro de la Etapa 2.1'
                     }
-                    post {}
+                    //post {}
                 }
                 stage('Etapa 2.2') {
                     steps {
@@ -42,10 +42,10 @@ pipeline {
                     steps {
                         echo 'Dentro de la Etapa 2.3'
                     }
-                    post {}
+                    //post {}
                 }
             }
-            post {}
+            //post {}
         }
         stage('Etapa 3'){
             steps {
