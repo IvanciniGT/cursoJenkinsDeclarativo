@@ -1,4 +1,11 @@
-VERSION_DEL_PIPELINE="2"
+VERSION_DEL_PIPELINE="2.1"
+
+PARAMETROS_DE_MI_PIPELINE=[
+    // Aqui pongo mis parametros
+    booleanParam (defaultValue: true, description: 'Descripción de mi parámetro', name: 'MI_PARAM_BOOLEAN'),
+    string(defaultValue: 'valor por defecto', description: 'Descripción de mi parámetro de texto', name: 'MI_PARAM_TEXTO')
+
+]
 
 if (this.params.getOrDefault('VERSION_DEL_PIPELINE',"-1")!=VERSION_DEL_PIPELINE){
     creoConfiguracion()
@@ -14,15 +21,25 @@ node {
     }
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
 def creoConfiguracion(){
     properties(
         [
             parameters(
                 [
-                    choice(name: 'VERSION_DEL_PIPELINE', description: 'Version del pipeline instalada', choices: [ VERSION_DEL_PIPELINE ]),
-                    choice(name: 'ENTORNO', description: 'Elija entorno', choices: [ 'desasrrollo','produccion' ])
-                    // Aqui pongo el resto de params que necesite mi pipeline
-                ]
+                    choice(name: 'VERSION_DEL_PIPELINE', description: 'Version del pipeline instalada', choices: [ VERSION_DEL_PIPELINE ])
+                ] + PARAMETROS_DE_MI_PIPELINE
             )
         ]
     )
