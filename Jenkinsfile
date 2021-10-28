@@ -10,7 +10,9 @@ PARAMETROS_DE_MI_PIPELINE=[
 ]
 
 if (this.params.getOrDefault('VERSION_DEL_PIPELINE',"-1")!=VERSION_DEL_PIPELINE){
-    creoConfiguracion()
+    stage('Configuración del JOB'){
+        creoConfiguracion()
+    }
     return
 }
 
