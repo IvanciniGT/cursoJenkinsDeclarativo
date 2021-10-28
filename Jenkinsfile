@@ -1,4 +1,4 @@
-VERSION_DEL_PIPELINE="1"
+VERSION_DEL_PIPELINE="2"
 
 if (this.params.getOrDefault('VERSION_DEL_PIPELINE',"-1")!=VERSION_DEL_PIPELINE){
     creoConfiguracion()
@@ -19,7 +19,8 @@ def creoConfiguracion(){
         [
             parameters(
                 [
-                    choice(name: 'VERSION_DEL_PIPELINE', description: 'Version del pipeline instalada', choices: [ VERSION_DEL_PIPELINE ])
+                    choice(name: 'VERSION_DEL_PIPELINE', description: 'Version del pipeline instalada', choices: [ VERSION_DEL_PIPELINE ]),
+                    choice(name: 'ENTORNO', description: 'Elija entorno', choices: [ 'desasrrollo','produccion' ])
                     // Aqui pongo el resto de params que necesite mi pipeline
                 ]
             )
